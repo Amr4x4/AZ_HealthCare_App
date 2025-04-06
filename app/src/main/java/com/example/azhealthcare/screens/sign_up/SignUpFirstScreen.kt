@@ -1,6 +1,5 @@
 package com.example.azhealthcare.screens.sign_up
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -30,17 +29,21 @@ import com.example.azhealthcare.R
 import com.example.azhealthcare.common_ui.BackgroundScreen
 import com.example.azhealthcare.common_ui.MyButton
 import com.example.azhealthcare.common_ui.TopBox
+import com.example.azhealthcare.navegation.NavController
+import com.example.azhealthcare.navegation.Screen
 import com.example.azhealthcare.ui.theme.BtnRed
 import com.example.azhealthcare.ui.theme.DarkBlue
 import com.example.azhealthcare.ui.theme.DescriptionColor
-import com.example.azhealthcare.ui.theme.Gray
 import com.example.azhealthcare.ui.theme.LightBlue
 import com.example.azhealthcare.ui.theme.PlaceholderColor
 import com.example.azhealthcare.ui.theme.TextColor
 import com.example.azhealthcare.view_models.signup_viewmodel.SignUpViewModel
 
 @Composable
-fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
+fun SignUpFirstScreen(
+    navController: NavController,
+    viewModel: SignUpViewModel = viewModel()
+) {
     val fullName by viewModel.fullName.observeAsState("")
     val email by viewModel.email.observeAsState("")
     val password by viewModel.password.observeAsState("")
@@ -89,7 +92,7 @@ fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
                         text = stringResource(id = R.string.enter_your_full_name),
                         color = DarkBlue
                     )
-                              },
+                },
                 trailingIcon = {
                     Image(
                         painter = painterResource(id = R.drawable.user),
@@ -179,7 +182,7 @@ fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
                         text = stringResource(id = R.string.password_hint),
                         color = DarkBlue
                     )
-                              },
+                },
                 singleLine = true,
                 visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
                 trailingIcon = {
@@ -220,7 +223,8 @@ fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
             MyButton(
                 text = stringResource(id = R.string.sign_up),
                 onClick = {
-
+                    // Navigate to the second signup screen
+                    navController.navigateTo(Screen.SignUpSecondScreen.route)
                 },
                 enabled = allFieldsValid
             )
@@ -229,7 +233,7 @@ fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
 
             TextButton(
                 onClick = {
-                    // Navigate to sign in screen
+                    navController.navigateTo(Screen.LogIn.route)
                 }
             ) {
                 Text(
@@ -242,7 +246,7 @@ fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
                     color = BtnRed,
                     fontSize = 16.sp,
                     modifier = Modifier.clickable {
-                        // Navigate to sign in
+                        navController.navigateTo(Screen.LogIn.route)
                     },
                     textDecoration = TextDecoration.Underline
                 )
@@ -254,5 +258,5 @@ fun SignUpScreen(viewModel: SignUpViewModel = viewModel()) {
 @Preview(showBackground = true)
 @Composable
 fun SignUpScreenPreview() {
-    SignUpScreen()
+    SignUpFirstScreen(navController = NavController())
 }

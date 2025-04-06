@@ -27,6 +27,8 @@ import androidx.compose.ui.unit.sp
 import com.example.azhealthcare.R
 import com.example.azhealthcare.common_ui.BackgroundScreen
 import com.example.azhealthcare.common_ui.TopBox
+import com.example.azhealthcare.navegation.NavController
+import com.example.azhealthcare.navegation.Screen
 import com.example.azhealthcare.ui.theme.BtnRed
 import com.example.azhealthcare.ui.theme.LightRed
 import com.example.azhealthcare.ui.theme.LightTextColor
@@ -34,9 +36,10 @@ import com.example.azhealthcare.ui.theme.PlaceholderColor
 import com.example.azhealthcare.ui.theme.TextColor
 import java.util.*
 
-
 @Composable
-fun UserContinueSignUp() {
+fun SignUpSecondScreen(
+    navController: NavController
+) {
     var country by remember { mutableStateOf("") }
     var dateOfBirth by remember { mutableStateOf("") }
     var isDialogVisible by remember { mutableStateOf(false) }
@@ -87,7 +90,7 @@ fun UserContinueSignUp() {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Let’s Complete your Profile",
+                text = "Let's Complete your Profile",
                 color = LightTextColor,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.W400,
@@ -146,7 +149,7 @@ fun UserContinueSignUp() {
                                 .fillMaxWidth()
                                 .height(80.dp)
                                 .background(Color.White)
-                                .padding(top = 8.dp)  // Add padding to position suggestions below the text field
+                                .padding(top = 8.dp)
                         ) {
                             items(countries.filter {
                                 it.contains(
@@ -228,7 +231,8 @@ fun UserContinueSignUp() {
             Spacer(modifier = Modifier.height(32.dp))
             Button(
                 onClick = {
-
+                    // Navigate to home screen after successful signup
+                    navController.navigateTo(Screen.Home.route)
                 },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -279,7 +283,7 @@ fun CountryPickerDialog(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(515.dp)  // Set the dialog height to 350dp
+                .height(515.dp)
                 .background(Color.White, RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
                 .padding(16.dp)
         ) {
@@ -373,5 +377,5 @@ fun showDatePicker(context: Context, onDateSelected: (String) -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun UserContinueSignUpPreview() {
-    UserContinueSignUp()
+    SignUpSecondScreen(navController = NavController())
 }

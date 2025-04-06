@@ -29,13 +29,17 @@ import com.example.azhealthcare.R
 import com.example.azhealthcare.common_ui.BackgroundScreen
 import com.example.azhealthcare.common_ui.MyButton
 import com.example.azhealthcare.common_ui.TopBox
+import com.example.azhealthcare.navegation.NavController
+import com.example.azhealthcare.navegation.Screen
 import com.example.azhealthcare.ui.theme.DarkBlue
 import com.example.azhealthcare.ui.theme.LightBlue
-import com.example.azhealthcare.ui.theme.Purple40
 import com.example.azhealthcare.view_models.LogInViewModel
 
 @Composable
-fun LogInScreen(viewModel: LogInViewModel = viewModel()) {
+fun LoginScreen(
+    navController: NavController,
+    viewModel: LogInViewModel = viewModel()
+) {
     val email by viewModel.email.collectAsState()
     val password by viewModel.password.collectAsState()
     val passwordVisibility by viewModel.passwordVisibility.collectAsState()
@@ -137,7 +141,7 @@ fun LogInScreen(viewModel: LogInViewModel = viewModel()) {
                     Text(text = stringResource(id = R.string.password_hint),
                         color = DarkBlue
                     )
-                              },
+                },
                 singleLine = true,
                 visualTransformation = if (passwordVisibility) VisualTransformation.None
                 else PasswordVisualTransformation(),
@@ -178,8 +182,13 @@ fun LogInScreen(viewModel: LogInViewModel = viewModel()) {
                 text = stringResource(id = R.string.sign_in),
                 onClick = {
                     viewModel.login(
-                        onSuccess = { /* Navigate to next screen */ },
-                        onFailure = { /* Error in loading*/ }
+                        onSuccess = {
+                            // Navigate to home screen after successful login
+                            navController.navigateTo(Screen.Home.route)
+                        },
+                        onFailure = { error ->
+                            // Error is already handled in the ViewModel
+                        }
                     )
                 },
                 enabled = allFieldsValid && !loading
@@ -191,7 +200,9 @@ fun LogInScreen(viewModel: LogInViewModel = viewModel()) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextButton(onClick = {/*TODO*/}) {
+            TextButton(onClick = {
+                navController.navigateTo(Screen.SignUpFirstScreen.route)
+            }) {
                 Text(
                     text = stringResource(id = R.string.do_not_have_account),
                     color = Color.DarkGray,
@@ -215,5 +226,5 @@ fun LogInScreen(viewModel: LogInViewModel = viewModel()) {
 @Preview(showBackground = true)
 @Composable
 private fun SignInPreview() {
-    LogInScreen()
+    LoginScreen(navController = NavController())
 }

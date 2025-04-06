@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -22,26 +21,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.azhealthcare.R
 import com.example.azhealthcare.common_ui.BackgroundScreen
 import com.example.azhealthcare.common_ui.MyButton
+import com.example.azhealthcare.navegation.NavController
+import com.example.azhealthcare.navegation.Screen
 
 @Composable
 fun StartPage(
     navController: NavController
 ) {
-
     BackgroundScreen()
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp)
-        ,
+            .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-
         Image(
             painter = painterResource(id = R.drawable.oo),
             contentDescription = "Get Start Image",
@@ -55,8 +52,7 @@ fun StartPage(
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 45.sp,
                 fontFamily = FontFamily.Serif
-
-                ),
+            ),
             color = Color.White,
             textAlign = TextAlign.Center
         )
@@ -70,26 +66,25 @@ fun StartPage(
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Cursive
-
-                ),
+            ),
             color = Color.Gray,
             textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        MyButton(text = "Get Started",enabled = true,
+        MyButton(
+            text = "Get Started",
+            enabled = true,
             onClick = {
-                // Action
+                navController.navigateTo(Screen.Languages.route)
             }
         )
-
     }
 }
-
 
 @Preview
 @Composable
 private fun StartPagePreview() {
-    StartPage(navController = NavController(LocalContext.current))
+    StartPage(navController = NavController())
 }
