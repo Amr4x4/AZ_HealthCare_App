@@ -1,19 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Az Health Care</string>
+    <!-- App Name -->
+    <string name="app_name">AZ Healthcare</string>
+
+    <!-- Onboarding Screen -->
+    <string name="onboarding_title1">Welcome to AZ Healthcare</string>
+    <string name="onboarding_description1">Your personal AI-powered healthcare companion, ready to assist you anytime, anywhere.</string>
+
+    <string name="onboarding_title2">AI-Powered Diagnosis</string>
+    <string name="onboarding_description2">Get instant medical insights and preliminary diagnoses using advanced AI technology.</string>
+
+    <string name="onboarding_title3">24/7 Medical Support</string>
+    <string name="onboarding_description3">Access medical advice and support around the clock, whenever you need it.</string>
+
+    <string name="onboarding_title4">Your Health Journey</string>
+    <string name="onboarding_description4">Track your health progress and get personalized recommendations for a healthier life.</string>
+    <string name="skip">Skip</string>
+    <!-- Start Screen -->
+    <string name="get_started">Get Started</string>
+    <string name="start_screen_description">Now you have an AI-powered doctor in your phone, Ready to monitor your health and daily activities</string>
+    <string name="get_start_image_description">Get Start Image</string>
+
+    <!-- Language Screen -->
+    <string name="select_language">Select Language</string>
+    <string name="next">Next</string>
+
+    <!-- Login Screen -->
     <string name="sign_in">Sign In</string>
-    <string name="sign_up">Sign Up</string>
     <string name="email">Email</string>
-    <string name="email_hint">Enter your email address</string>
+    <string name="email_hint">Enter your email</string>
     <string name="email_wrong_format">Wrong email format</string>
     <string name="password">Password</string>
-    <string name="password_hint">Enter your Password</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="password_rules">Password must contain at least 6 characters, one uppercase letter, one lowercase letter, and one special character</string>
     <string name="do_not_have_account">Don\'t have an account?</string>
-    <string name="password_rules">Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, and one special character.</string>
+    <string name="sign_up">Sign Up</string>
+
+    <!-- Sign Up First Screen -->
     <string name="full_name">Full Name</string>
-    <string name="enter_your_full_name">Enter your Full Name</string>
-    <string name="already_have_an_account">"Already have an account? "</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="already_have_an_account">Already have an account?</string>
+
+    <!-- Sign Up Second Screen -->
     <string name="complete_the_profile">Complete Your Profile</string>
-    <string name="welcome_to_az_healthcare">Welcome to AZ HealthCare!</string>
+    <string name="welcome_to_az_healthcare">Welcome to AZ Healthcare</string>
+    <string name="complete_profile_description">Let\'s Complete your Profile</string>
+    <string name="country">Country</string>
+    <string name="select_your_country">Select your country</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="date_format">DD/MM/YYYY</string>
+    <string name="unaccepted_date">Unaccepted Date</string>
 
+    <!-- Common -->
+    <string name="cancel">Cancel</string>
+    <string name="scroll_to_choose_country">Scroll to choose your country</string>
 
+    <!-- Error Messages -->
+    <string name="error_invalid_credentials">Invalid email or password</string>
+    <string name="error_required_field">This field is required</string>
+    <string name="error_invalid_date">Please enter a valid date</string>
+    <string name="error_invalid_country">Please select a valid country</string>
+
+    <!-- Success Messages -->
+    <string name="success_signup">Account created successfully!</string>
+    <string name="success_login">Logged in successfully!</string>
+
+    <!-- Loading States -->
+    <string name="loading">Loading...</string>
+    <string name="processing">Processing...</string>
+
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
 </resources>

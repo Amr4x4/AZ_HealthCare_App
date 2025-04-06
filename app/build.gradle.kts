@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
+    implementation(libs.androidx.foundation)
     implementation(libs.material3)
     implementation (libs.androidx.material)
     implementation(libs.coil.compose)

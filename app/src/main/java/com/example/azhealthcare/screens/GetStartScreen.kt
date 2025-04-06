@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -26,6 +27,7 @@ import com.example.azhealthcare.common_ui.BackgroundScreen
 import com.example.azhealthcare.common_ui.MyButton
 import com.example.azhealthcare.navegation.NavController
 import com.example.azhealthcare.navegation.Screen
+
 
 @Composable
 fun StartPage(
@@ -41,13 +43,13 @@ fun StartPage(
     ) {
         Image(
             painter = painterResource(id = R.drawable.oo),
-            contentDescription = "Get Start Image",
+            contentDescription = stringResource(R.string.get_start_image_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier.padding(top = 64.dp)
         )
         Spacer(modifier = Modifier.height(64.dp))
         Text(
-            text = "AZ Healthcare",
+            text = stringResource(R.string.app_name),
             style = TextStyle(
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 45.sp,
@@ -60,8 +62,7 @@ fun StartPage(
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Now you have an AI-powered doctor in your phone," +
-                    " Ready to monitor your health and daily activities",
+            text = stringResource(R.string.start_screen_description),
             style = TextStyle(
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
@@ -74,7 +75,7 @@ fun StartPage(
         Spacer(modifier = Modifier.height(32.dp))
 
         MyButton(
-            text = "Get Started",
+            text = stringResource(R.string.get_started),
             enabled = true,
             onClick = {
                 navController.navigateTo(Screen.Languages.route)

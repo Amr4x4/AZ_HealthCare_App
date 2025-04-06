@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.azhealthcare.onboarding.OnboardingScreen
 import com.example.azhealthcare.screens.Languages
 import com.example.azhealthcare.screens.LoginScreen
 import com.example.azhealthcare.screens.StartPage
@@ -19,8 +20,11 @@ fun AppNavHost(
 
     NavHost(
         navController = navHostController,
-        startDestination = Screen.GetStartScreen.route
+        startDestination = Screen.Onboarding.route
     ) {
+        composable(Screen.Onboarding.route) {
+            OnboardingScreen(navController)
+        }
         composable(Screen.GetStartScreen.route) {
             StartPage(navController)
         }
