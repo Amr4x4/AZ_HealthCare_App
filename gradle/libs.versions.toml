@@ -1,11 +1,12 @@
 [versions]
 accompanistPermissions = "0.34.0"
-agp = "8.5.2"
+agp = "8.9.2"
 androidxActivityCompose = "1.10.1"
 androidxJunit = "1.2.1"
 androidxLifecycleRuntimeKtx = "2.8.7"
 converterGson = "2.9.0"
 coreKtxVersion = "1.16.0"
+desugar_jdk_libs = "2.1.5"
 espressoCoreVersion = "3.6.1"
 firebaseBom = "33.13.0"
 hiltAndroid = "2.50"
@@ -46,6 +47,7 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
