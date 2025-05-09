@@ -31,8 +31,7 @@ import com.example.azhealthcare.presentation.common_ui.MyButton
 import com.example.azhealthcare.presentation.common_ui.TopBox
 import com.example.azhealthcare.presentation.navegation.NavController
 import com.example.azhealthcare.presentation.navegation.Screen
-import com.example.azhealthcare.presentation.theme.Selected
-import com.example.azhealthcare.presentation.theme.UnSelected
+
 
 @Composable
 fun Languages(
@@ -77,11 +76,6 @@ fun Languages(
                             shape = RoundedCornerShape(10.dp),
                             ambientColor = Color.Black
                         ),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        backgroundColor =
-                        if (selectedLanguage == languageTag) Selected
-                        else UnSelected
-                    ),
                     shape = RoundedCornerShape(20.dp),
                 ) {
                     Text(

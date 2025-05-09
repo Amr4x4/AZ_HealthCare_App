@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,9 +36,6 @@ import com.example.azhealthcare.presentation.navegation.Screen
 import com.example.azhealthcare.presentation.theme.BtnRed
 import com.example.azhealthcare.presentation.theme.DarkBlue
 import com.example.azhealthcare.presentation.theme.DescriptionColor
-import com.example.azhealthcare.presentation.theme.LightBlue
-import com.example.azhealthcare.presentation.theme.PlaceholderColor
-import com.example.azhealthcare.presentation.theme.TextColor
 import com.example.azhealthcare.presentation.viewmodels.signup_viewmodel.SignUpViewModel
 
 @Composable
@@ -44,11 +43,11 @@ fun SignUpFirstScreen(
     navController: NavController,
     viewModel: SignUpViewModel = viewModel()
 ) {
-    val fullName by viewModel.fullName.observeAsState("")
-    val email by viewModel.email.observeAsState("")
-    val password by viewModel.password.observeAsState("")
-    val passwordVisibility by viewModel.passwordVisibility.observeAsState(false)
-    val allFieldsValid by viewModel.allFieldsValid.observeAsState(false)
+    val fullName = ""
+    val email = ""
+    val password = ""
+    val passwordVisibility = true
+    val allFieldsValid = true
 
     BackgroundScreen()
     Box(
@@ -67,7 +66,6 @@ fun SignUpFirstScreen(
 
             Text(
                 text = stringResource(id = R.string.app_name),
-                style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.Bold),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.W600,
                 lineHeight = 30.sp,
@@ -101,13 +99,7 @@ fun SignUpFirstScreen(
                     )
                 },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    backgroundColor = LightBlue,
-                    focusedBorderColor = Color.Black,
-                    unfocusedBorderColor = Color.Gray,
-                    placeholderColor = PlaceholderColor
-                )
+                modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -142,14 +134,7 @@ fun SignUpFirstScreen(
                     imeAction = ImeAction.Done,
                     keyboardType = KeyboardType.Email
                 ),
-                modifier = Modifier.fillMaxWidth(),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    backgroundColor = LightBlue,
-                    focusedBorderColor = Color.Black,
-                    unfocusedBorderColor = Color.Gray,
-                    textColor = TextColor,
-                    placeholderColor = PlaceholderColor
-                )
+                modifier = Modifier.fillMaxWidth()
             )
 
             if (email.isNotBlank() && !android.util.Patterns.EMAIL_ADDRESS.matcher(email)
@@ -199,14 +184,7 @@ fun SignUpFirstScreen(
                         )
                     }
                 },
-                modifier = Modifier.fillMaxWidth(),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    backgroundColor = LightBlue,
-                    focusedBorderColor = Color.Black,
-                    unfocusedBorderColor = Color.Gray,
-                    textColor = TextColor,
-                    placeholderColor = PlaceholderColor
-                )
+                modifier = Modifier.fillMaxWidth()
             )
 
             if (password.isNotBlank() && !password.matches(Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#\$%^&*()\\-_=+{}\\[\\]|;:'\",.<>?/~`]).{6,}$"))) {

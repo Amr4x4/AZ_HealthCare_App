@@ -10,7 +10,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,8 +32,6 @@ import com.example.azhealthcare.presentation.common_ui.BackgroundScreen
 import com.example.azhealthcare.presentation.common_ui.TopBox
 import com.example.azhealthcare.presentation.navegation.NavController
 import com.example.azhealthcare.presentation.navegation.Screen
-import com.example.azhealthcare.presentation.theme.BtnRed
-import com.example.azhealthcare.presentation.theme.LightRed
 import com.example.azhealthcare.presentation.theme.LightTextColor
 import com.example.azhealthcare.presentation.theme.PlaceholderColor
 import com.example.azhealthcare.presentation.theme.TextColor
@@ -70,7 +71,6 @@ fun SignUpSecondScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.app_name),
-                style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.Bold),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.W600,
                 lineHeight = 30.sp,
@@ -134,14 +134,7 @@ fun SignUpSecondScreen(
                             )
                         },
                         singleLine = true,
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = TextFieldDefaults.outlinedTextFieldColors(
-                            backgroundColor = Color.Transparent,
-                            focusedBorderColor = Color.Gray,
-                            unfocusedBorderColor = Color.Gray,
-                            textColor = TextColor,
-                            placeholderColor = PlaceholderColor
-                        )
+                        modifier = Modifier.fillMaxWidth()
                     )
                     if (isSuggestionVisible) {
                         LazyColumn(
@@ -208,13 +201,6 @@ fun SignUpSecondScreen(
                 },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    backgroundColor = Color.Transparent,
-                    focusedBorderColor = Color.Gray,
-                    unfocusedBorderColor = Color.Gray,
-                    textColor = TextColor,
-                    placeholderColor = PlaceholderColor
-                ),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
             if (!dateOfBirthValid) {
@@ -238,11 +224,7 @@ fun SignUpSecondScreen(
                     .fillMaxWidth()
                     .height(50.dp),
                 shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = if (allFieldsValid) BtnRed else LightRed,
-                    disabledBackgroundColor = LightRed
-                ),
-                enabled = allFieldsValid
+                enabled = allFieldsValid,
             ) {
                 Text(
                     text = "Continue",
@@ -265,6 +247,7 @@ fun SignUpSecondScreen(
         }
     }
 }
+
 
 @Composable
 fun CountryPickerDialog(

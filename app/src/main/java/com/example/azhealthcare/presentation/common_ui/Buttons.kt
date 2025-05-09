@@ -1,12 +1,11 @@
 package com.example.azhealthcare.presentation.common_ui
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,7 +25,6 @@ fun MyButton(
         onClick = { onClick() },
         modifier = modifier.fillMaxWidth(),
         colors = ButtonDefaults.outlinedButtonColors(
-            backgroundColor = if (enabled) Color(android.graphics.Color.BLUE) else Color.Gray
         ),
         shape = RoundedCornerShape(20.dp),
         enabled = enabled

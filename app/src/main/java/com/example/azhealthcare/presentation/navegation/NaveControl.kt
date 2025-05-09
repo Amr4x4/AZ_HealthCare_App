@@ -1,8 +1,6 @@
 package com.example.azhealthcare.presentation.navegation
 
-import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 
 class NavController {
     private var navController: NavHostController? = null

@@ -1,6 +1,5 @@
 package com.example.azhealthcare.presentation.screens
 
-import ads_mobile_sdk.h4
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,7 +10,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -72,7 +70,6 @@ fun LoginScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.app_name),
-                style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.Bold),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.W600,
                 lineHeight = 30.sp,
