@@ -74,6 +74,8 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.compose.ui.ui.tooling.preview)
 
+    //fonts
+    implementation (libs.androidx.ui.text.google.fonts)
     // Navigation
     implementation(libs.androidx.navigation.compose.v277)
 
