@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.azhealthcare.presentation.navegation.AppNavHost
+import com.example.azhealthcare.presentation.screens.profile.ProfileScreen
 import com.example.azhealthcare.presentation.theme.AzHealthCareTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AzHealthCareTheme {
-               AppNavHost()
+                ProfileScreen()
             }
         }
     }

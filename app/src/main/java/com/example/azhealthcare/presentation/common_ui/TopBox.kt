@@ -21,7 +21,8 @@ import com.example.azhealthcare.presentation.theme.Purple700
 
 @Composable
 fun TopBox(
-    title:String
+    title:String,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier
